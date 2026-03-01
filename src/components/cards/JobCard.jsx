@@ -14,7 +14,7 @@ const JobCard = ({ job }) => {
       </div>
 
       <Link
-        to={`/jobs/${job._id}`}
+        to={`/jobs/${job.job_id}`}
         className="mt-auto inline-block px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
       >
         View Details

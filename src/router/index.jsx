@@ -4,6 +4,7 @@ import MainLayout from '../layouts/MainLayout';
 import Home from '../pages/Home';
 import JobListings from '../pages/JobListings';
 import DetailJob from '../pages/DetailsJob';
+import AdminJobs from '../dashboard/AdminJobs';
 
 // you can add additional route components or pages later
 
@@ -21,8 +22,12 @@ const router = createBrowserRouter([
         element: <JobListings></JobListings>
       },
       {
-        path : "/jobs/:id",
-         element: DetailJob
+        path: "/jobs/:job_id",
+        element: <DetailJob />
+      },
+      {
+        path : "/AdminJobs",
+         element: <AdminJobs/>
       }
 
      

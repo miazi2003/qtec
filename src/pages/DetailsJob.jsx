@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import axios from "../api/axios";
 
 const DetailJob = () => {
-  const { id } = useParams();
+  const { job_id } = useParams(); // updated to use job_id
   const [job, setJob] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -15,20 +15,22 @@ const DetailJob = () => {
     coverNote: ""
   });
 
+  // Fetch single job by job_id
   useEffect(() => {
     const fetchJob = async () => {
       try {
-        const res = await axios.get(`/jobs/${id}`);
+        const res = await axios.get(`/jobs/${job_id}`);
         setJob(res.data);
       } catch (err) {
-        setError("Failed to load job." , err);
+        console.error(err);
+        setError("Failed to load job.");
       } finally {
         setLoading(false);
       }
     };
 
     fetchJob();
-  }, [id]);
+  }, [job_id]);
 
   const handleChange = (e) => {
     setFormData({
@@ -37,23 +39,23 @@ const DetailJob = () => {
     });
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      await axios.post("/applications", {
-        job: job._id,
-        name: formData.name,
-        email: formData.email,
-        resume_link: formData.resume,
-        cover_note: formData.coverNote
-      });
-      alert("Application submitted successfully!");
-      setFormData({ name: "", email: "", resume: "", coverNote: "" });
-    } catch (err) {
-      console.error(err);
-      alert("Something went wrong!");
-    }
-  };
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  try {
+    await axios.post("/applications", {
+      job: job._id,      // <-- ADD THIS
+      name: formData.name,
+      email: formData.email,
+      resume_link: formData.resume,
+      cover_note: formData.coverNote
+    });
+    alert("Application submitted successfully!");
+    setFormData({ name: "", email: "", resume: "", coverNote: "" });
+  } catch (err) {
+    console.error(err);
+    alert("Something went wrong!");
+  }
+};
 
   if (loading) return <p className="text-center mt-10">Loading job details...</p>;
   if (error) return <p className="text-center mt-10 text-red-500">{error}</p>;

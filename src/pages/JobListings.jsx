@@ -11,7 +11,7 @@ const JobListings = () => {
 
   const [searchTerm, setSearchTerm] = useState("");
   const [category, setCategory] = useState("");
-  const [location, setLocation] = useState("");
+  const [location, setLocation] = useState(""); // Location state stays here
 
   useEffect(() => {
     const fetchJobs = async () => {
@@ -38,7 +38,11 @@ const JobListings = () => {
         : true;
 
       const matchesCategory = category ? job.category === category : true;
-      const matchesLocation = location ? job.location === location : true;
+      
+      // Makes location search case-insensitive and partial match for better UX
+      const matchesLocation = location 
+        ? job.location.toLowerCase().includes(location.toLowerCase()) 
+        : true;
 
       return matchesSearch && matchesCategory && matchesLocation;
     });
@@ -48,32 +52,44 @@ const JobListings = () => {
   if (error) return <p className="text-center mt-10 text-red-500">{error}</p>;
 
   return (
-    <div className="min-h-screen bg-gray-100 py-10 px-4">
-      <div className="max-w-6xl mx-auto">
+    <div className="min-h-screen bg-gray-50 py-10 px-4">
+      <div className="max-w-[1200px] mx-auto">
+        
         {/* Header */}
-        <h1 className="text-3xl font-bold mb-6 text-center">Job Listings</h1>
+        <h1 className="text-[32px] font-bold text-[#1a202c] mb-8 text-center">
+          Job Listings
+        </h1>
 
-        {/* Search + Filters */}
-        <div className="flex flex-col md:flex-row gap-4 mb-8 justify-between">
-          <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
-          <JobFilters
-            category={category}
-            setCategory={setCategory}
+        {/* Search Bar (Now handles Keyword AND Location) */}
+        <div className="mb-8 w-full">
+          <SearchBar 
+            searchTerm={searchTerm} 
+            setSearchTerm={setSearchTerm} 
             location={location}
             setLocation={setLocation}
           />
         </div>
 
+        {/* Filters for anything else (e.g., Category only now) */}
+        <div className="mb-8">
+          <JobFilters
+            category={category}
+            setCategory={setCategory}
+            // Note: Removed location from here since it's in the SearchBar now
+          />
+        </div>
+
         {/* Job Grid */}
         {filteredJobs.length > 0 ? (
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {filteredJobs.map((job) => (
               <JobCard key={job._id} job={job} />
             ))}
           </div>
         ) : (
-          <p className="text-center text-gray-500">No jobs found.</p>
+          <p className="text-center text-gray-500">No jobs found matching your criteria.</p>
         )}
+        
       </div>
     </div>
   );
