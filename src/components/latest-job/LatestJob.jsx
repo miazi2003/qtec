@@ -132,7 +132,7 @@ const latestJobsData = [
 
 export default function LatestJob() {
   return (
-    <section className="w-full  mx-auto px-31 py-16 font-sans latest_bg">
+    <section className="w-full  mx-auto px-31 py-16 clash latest_bg">
       
       {/* Header Section */}
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-10">
@@ -163,7 +163,7 @@ export default function LatestJob() {
 
             {/* Content Right */}
             <div className="flex flex-col flex-grow">
-              <h3 className="text-[18px] font-bold text-[#1a202c] mb-[2px]">
+              <h3 className="text-[18px] font-bold text-[#1a202c] mb-[2px] Epilogue">
                 {job.title}
               </h3>
               <p className="text-[14px] text-[#64748b] font-medium mb-4">
@@ -171,7 +171,7 @@ export default function LatestJob() {
               </p>
 
               {/* Tags Outline Style */}
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-2 Epilogue">
                 {job.tags.map((tag, index) => (
                   <span 
                     key={index} 

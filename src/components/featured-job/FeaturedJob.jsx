@@ -113,7 +113,7 @@ const jobData = [
 
 export default function FeaturedJob() {
   return (
-    <section className="w-full mx-auto px-31 py-16 font-sans bg-white">
+    <section className="w-full mx-auto px-31 py-16 clash bg-white">
       
       {/* Header Section */}
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-10">
@@ -143,23 +143,23 @@ export default function FeaturedJob() {
               ) : (
                 job.logo
               )}
-              <span className="border border-indigo-200 text-[#4640DE] text-[11px] font-semibold px-2 py-1 uppercase tracking-wide bg-white">
+              <span className="border border-indigo-200 text-[#4640DE] text-[11px] font-semibold px-2 py-1 uppercase tracking-wide Epilogue bg-white">
                 {job.type}
               </span>
             </div>
 
             {/* Title & Company/Location */}
             <div>
-              <h3 className="text-[17px] font-bold text-[#1a202c] mb-1">
+              <h3 className="text-[17px] font-bold text-[#1a202c] mb-1 Epilogue">
                 {job.title}
               </h3>
-              <p className="text-[13px] text-[#64748b] font-medium">
+              <p className="text-[13px] text-[#64748b] font-medium Epilogue">
                 {job.company} <span className="mx-1">•</span> {job.location}
               </p>
             </div>
 
             {/* Description */}
-            <p className="text-[14px] text-[#94a3b8] mt-4 leading-relaxed line-clamp-2">
+            <p className="text-[14px] text-[#94a3b8] mt-4 leading-relaxed line-clamp-2 Epilogue">
               {job.description}
             </p>
 
@@ -168,7 +168,7 @@ export default function FeaturedJob() {
               {job.tags.map((tag, index) => (
                 <span 
                   key={index} 
-                  className={`px-3 py-1 rounded-full text-[12px] font-bold tracking-wide ${tag.styles}`}
+                  className={`px-3 py-1 rounded-full text-[12px] font-bold tracking-wide Epilogue ${tag.styles}`}
                 >
                   {tag.name}
                 </span>

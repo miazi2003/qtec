@@ -69,11 +69,11 @@ const categoryData = [
 
 export default function Category() {
   return (
-    <section className="w-full mx-auto px-31 py-16 font-sans bg-white">
+    <section className="w-full mx-auto px-31 py-16 clash bg-white">
       
       {/* Header Section */}
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-10">
-        <h2 className="text-[48px] font-bold text-[#1a202c] leading-tight tracking-tight red_hat">
+        <h2 className="text-[48px] font-bold text-[#1a202c] leading-tight tracking-tight clash">
           Explore by <span className="text-[#0ea5e9]">category</span>
         </h2>
         
@@ -115,7 +115,7 @@ export default function Category() {
                 {category.title}
               </h3>
               
-              <div className={`flex items-center justify-between text-[15px] ${category.active ? 'text-indigo-200' : 'text-[#64748b]'}`}>
+              <div className={`flex items-center justify-between Epilogue text-[15px] ${category.active ? 'text-indigo-200' : 'text-[#64748b]'}`}>
                 <span>{category.count} jobs available</span>
                 <svg 
                   className={`w-5 h-5 transition-transform duration-300 ${!category.active && 'group-hover:translate-x-1 group-hover:text-[#4f46e5]'}`} 

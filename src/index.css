@@ -39,3 +39,21 @@
   background-size: cover;
   background-position: center;
 }
+
+.hero-left{
+  background: url("../src/assets/Pattern.png");
+    background-repeat: no-repeat;
+  background-size: 70%;
+  background-position:top right;
+}
+
+@font-face {
+  font-family: "ClashDisplay";
+  src: url("/public/ClashDisplay-Semibold.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+.clash {
+  font-family: "ClashDisplay", sans-serif;
+}

@@ -3,7 +3,7 @@ import dashboard from "../../assets/dashboard_image.png"
 const CTA = () => {
     return (
        <div className='px-31 '>
-         <div className='CTA_bg h-110 relative px-17 flex items-center justify-between Epilogue'>
+         <div className='CTA_bg h-110 relative px-17 flex items-center justify-between clash'>
             <div className='w-1/3 flex flex-col gap-6'>
                 <h2 className='text-[48px] text-white '>
                     Start posting jobs today
