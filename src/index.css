@@ -1,0 +1,41 @@
+@import "tailwindcss";
+
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100..900;1,100..900&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap');
+
+
+.red_hat {
+ 
+ font-family: "Red Hat Display", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+.Epilogue {
+  
+ 
+  font-family: "Epilogue", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+
+}
+
+
+:root {
+  --color-primary: #4640DE;
+}
+
+.CTA_bg{
+  background: url("../src/assets/Rectangle\ 2742.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.latest_bg{
+  background: url("../src/assets/latest.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
