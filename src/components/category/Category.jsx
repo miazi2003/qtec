@@ -69,11 +69,11 @@ const categoryData = [
 
 export default function Category() {
   return (
-    <section className="w-full mx-auto px-31 py-16 clash bg-white">
+    <section className="w-full mx-auto lg:px-31 md:px-16 px-4 py-16 clash bg-white">
       
       {/* Header Section */}
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-10">
-        <h2 className="text-[48px] font-bold text-[#1a202c] leading-tight tracking-tight clash">
+        <h2 className="md:text-[48px] text-[26px] font-bold text-[#1a202c] leading-tight tracking-tight clash">
           Explore by <span className="text-[#0ea5e9]">category</span>
         </h2>
         
@@ -91,7 +91,7 @@ export default function Category() {
           <div
             key={category.id}
             className={`
-              group relative flex flex-col justify-between p-8 h-[214px] border transition-all duration-300 cursor-pointer
+              group relative flex md:flex-col justify-between md:p-8 p-4 items-center md:items-start md:h-[214px] border transition-all duration-300 cursor-pointer
               ${category.active 
                 ? 'bg-[#4f46e5] border-[#4f46e5] text-white shadow-lg z-10' 
                 : 'bg-white border-[#e2e8f0] text-[#1a202c] hover:border-[#4f46e5] hover:shadow-md'
@@ -103,15 +103,15 @@ export default function Category() {
             {/* Icon */}
             <div className={`${category.active ? 'text-white' : 'text-[#4f46e5]'}`}>
               {typeof category.icon === 'string' ? (
-                <img className='w-10 h-10' src={category.icon} alt={category.title} />
+                <img className='md:w-10 md:h-10 w-8 h-8' src={category.icon} alt={category.title} />
               ) : (
                 category.icon
               )}
             </div>
 
             {/* Content Bottom */}
-            <div className="mt-8">
-              <h3 className="text-[24px] font-bold mb-3 tracking-tight">
+            <div className="md:mt-8">
+              <h3 className="md:text-[24px] text-[18px] font-bold mb-3 tracking-tight">
                 {category.title}
               </h3>
               

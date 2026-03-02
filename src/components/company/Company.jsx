@@ -7,7 +7,7 @@ import talkit from "../../assets/talkit 1.png";
 
 const Company = () => {
   return (
-    <section className="w-full bg-white  px-31">
+    <section className="w-full bg-white  lg:px-31 md:px-16 px-4">
       {/* Container: Max width ensures the logos don't stretch too far on huge screens.
         py-12 gives that spacious, airy feel around the logos.
       */}

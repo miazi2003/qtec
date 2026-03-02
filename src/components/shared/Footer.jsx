@@ -4,7 +4,7 @@ export default function Footer() {
   return (
     <footer className="w-full bg-[#202430] font-sans text-white border-t border-gray-800">
       {/* Main Container */}
-      <div className=" mx-auto px-31 pt-20 pb-8">
+      <div className=" mx-auto lg:px-31 md:px-16 px-4 pt-20 pb-8">
         
         {/* Top Grid Section */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 mb-16">

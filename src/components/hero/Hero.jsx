@@ -11,7 +11,7 @@ const Hero = () => {
 
   return (
     <section className="relative w-full bg-[#fcfdff] pt-8 pb-20 overflow-hidden font-sans">
-      <div className="mx-auto px-31 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center hero-left">
+      <div className="mx-auto lg:px-31 md:px-16 px-4 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center hero-left">
         
         {/* Left Column: Text Content */}
         <div className="flex flex-col z-10">
@@ -37,14 +37,14 @@ const Hero = () => {
           </div>
 
           {/* Popular Tags */}
-          <div className="text-[14px] text-[#64748b] flex items-center gap-2">
-            <span className="font-semibold text-[#1a202c]">Popular :</span>
-            <span className="truncate">UI Designer, UX Researcher, Android, Admin</span>
+          <div className="text-[14px] text-[#64748b] md:flex flex-col items-center gap-2">
+            <span className="font-semibold text-[#1a202c] w-md">Popular :</span>
+            <span className="">UI Designer, UX Researcher, Android, Admin</span>
           </div>
         </div>
 
         {/* Right Column: Hero Image */}
-        <div className="relative flex justify-center lg:justify-end items-end h-full mt-10 lg:mt-0">
+        <div className="relative flex justify-center lg:justify-end items-end h-full mt-10 lg:mt-0 md:block hidden">
           <img 
             src={model} 
             alt="Happy job seeker pointing at search bar" 

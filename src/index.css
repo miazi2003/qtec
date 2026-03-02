@@ -32,6 +32,12 @@
   background-size: cover;
   background-position: center;
 }
+.CTA_bg_mobile{
+  background: url("../src/assets/rectangle\ new.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
 
 .latest_bg{
   background: url("../src/assets/latest.png");
