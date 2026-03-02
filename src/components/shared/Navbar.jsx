@@ -2,15 +2,15 @@ import React, { useState } from "react";
 import logo from "../../assets/Frame 3.png";
 import ham from "../../assets/hamburger.png"
 export default function Navbar() {
-  // State to manage the open/close status of the mobile hamburger menu
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
     <nav className="w-full bg-transparent  relative z-50">
-      {/* Note: I adjusted lg:px-31 to lg:px-32 because 31 is not a standard Tailwind utility class */}
+
       <div className="max-w-[1440px] mx-auto lg:px-32 md:px-16 px-4 h-16 flex items-center justify-between">
         
-        {/* Left Section - Logo & Desktop Links */}
+   
         <div className="flex items-center gap-14">
           {/* Logo */}
        <a href="/">
@@ -23,7 +23,7 @@ export default function Navbar() {
             </span>
           </div></a>
           
-          {/* Desktop Links (Hidden on Mobile via 'hidden md:flex') */}
+
           <div className="hidden md:flex items-center gap-8 Epilogue font-medium">
             <a href="/joblistings" className="text-gray-600 text-[15px] hover:text-[#4640DE] transition-colors">
               Find Jobs
@@ -37,7 +37,6 @@ export default function Navbar() {
           </div>
         </div>
 
-        {/* Right Section - Desktop Auth Buttons (Hidden on Mobile) */}
         <div className="hidden md:flex items-center gap-6">
           <a href="#" className="text-[#4640DE] text-[15px] font-bold hover:underline Epilogue">
             Login
@@ -47,7 +46,6 @@ export default function Navbar() {
           </button>
         </div>
 
-        {/* Hamburger Menu Button (Visible only on Mobile) */}
         <button 
           className="md:hidden flex items-center p-2 text-gray-600 hover:text-gray-900 focus:outline-none bg-white rounded-full"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -71,7 +69,7 @@ export default function Navbar() {
           <a 
             href="/joblistings" 
             className="text-gray-600 text-[15px] font-medium hover:text-[#4640DE] py-2 border-b border-gray-50"
-            onClick={() => setIsMenuOpen(false)} // Closes menu when clicked
+            onClick={() => setIsMenuOpen(false)} 
           >
             Find Jobs
           </a>
@@ -90,7 +88,6 @@ export default function Navbar() {
             Dashboard
           </a>
           
-          {/* Mobile Auth Buttons Stacked */}
           <div className="flex flex-col gap-3 mt-2">
             <a href="#" className="text-[#4640DE] text-[15px] font-bold text-center py-2.5 border border-[#4640DE] rounded hover:bg-indigo-50 transition-colors">
               Login

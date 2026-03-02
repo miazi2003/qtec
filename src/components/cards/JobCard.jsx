@@ -4,7 +4,7 @@ const JobCard = ({ job }) => {
   return (
     <div className="bg-white border border-gray-200 p-6 hover:shadow-md transition-shadow duration-300 flex flex-col h-full rounded-none">
       
-      {/* Top section: Title, Company, Location */}
+
       <div>
         <h2 className="text-[18px] font-bold text-[#1a202c] mb-1 Epilogue tracking-tight">
           {job.title}
@@ -15,7 +15,7 @@ const JobCard = ({ job }) => {
           <span className="mx-1.5">•</span> 
           {job.location} 
           
-          {/* Only render category if it exists to prevent trailing bullets */}
+  
           {job.category && (
             <>
               <span className="mx-1.5">•</span> {job.category}
@@ -29,7 +29,7 @@ const JobCard = ({ job }) => {
         </p>
       </div>
 
-      {/* Button aligned to the bottom */}
+
       <Link
         to={`/jobs/${job.job_id}`}
         className="mt-auto block w-full text-center px-4 py-[14px] bg-[#4640DE] text-white text-[15px] font-bold hover:bg-[#3934b3] transition-colors duration-300 Epilogue rounded-none"

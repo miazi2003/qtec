@@ -4,9 +4,7 @@ import dashboard from "../../assets/dashboard_image.png";
 const CTA = () => {
     return (
        <div className='lg:px-32 md:px-16 px-4 py-10 w-full'>
-         {/* Added overflow-hidden to prevent the image from breaking the layout.
-           Switched to flex-col on mobile, flex-row on md+ screens.
-         */}
+    
          <div className=' CTA_bg relative px-6 md:px-16 py-12 md:py-0 min-h-[440px] flex flex-col md:flex-row items-center justify-between clash overflow-hidden '>
             
             {/* Text Content */}
@@ -22,10 +20,7 @@ const CTA = () => {
                 </button>
             </div>
 
-            {/* Image Container 
-              On mobile: sits naturally below the text.
-              On desktop: uses absolute positioning to stick to the bottom right.
-            */}
+           
             <div className='mt-10 md:mt-0 w-full md:w-auto flex justify-center md:absolute md:bottom-0 md:-right-8 lg:right-10 z-0'>
                 <img 
                     src={dashboard} 

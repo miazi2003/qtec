@@ -1,19 +1,19 @@
 import React, { useState } from 'react';
 
 const SearchBar = ({ setSearchTerm, setLocation }) => {
-  // 1. Local state to track typing before the button is clicked
+
   const [localSearchTerm, setLocalSearchTerm] = useState('');
   const [localLocation, setLocalLocation] = useState('');
 
-  // 2. Function to handle the actual search submission
+ 
   const handleSearch = (e) => {
-    e.preventDefault(); // Prevents the page from reloading
-    setSearchTerm(localSearchTerm); // Updates parent state
-    setLocation(localLocation);     // Updates parent state
+    e.preventDefault(); 
+    setSearchTerm(localSearchTerm); 
+    setLocation(localLocation);     
   };
 
   return (
-    // 3. Changed the main wrapper to a form and added onSubmit
+
     <form 
       onSubmit={handleSearch} 
       className="w-full bg-white p-2 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 flex flex-col md:flex-row items-center gap-4 md:gap-0"
