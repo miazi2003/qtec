@@ -6,12 +6,11 @@ import JobListings from '../pages/JobListings';
 import DetailJob from '../pages/DetailsJob';
 import AdminJobs from '../dashboard/AdminJobs';
 
-// you can add additional route components or pages later
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <MainLayout />, // MainLayout contains <Outlet />
+    element: <MainLayout />, 
     children: [
       {
         index: true,

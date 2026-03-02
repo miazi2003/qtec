@@ -15,6 +15,8 @@ const DetailJob = () => {
     coverNote: ""
   });
 
+  const [formErrors, setFormErrors] = useState({});
+
   useEffect(() => {
     const fetchJob = async () => {
       try {
@@ -36,10 +38,40 @@ const DetailJob = () => {
       ...formData,
       [e.target.name]: e.target.value
     });
+    
+    if (formErrors[e.target.name]) {
+      setFormErrors({
+        ...formErrors,
+        [e.target.name]: ""
+      });
+    }
+  };
+
+  const validateForm = () => {
+    const errors = {};
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const urlRegex = /^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)$/;
+
+    if (!emailRegex.test(formData.email)) {
+      errors.email = "Please enter a valid email address.";
+    }
+
+    if (!urlRegex.test(formData.resume)) {
+      errors.resume = "Please enter a valid URL starting with http:// or https://";
+    }
+
+    return errors;
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
+    const errors = validateForm();
+    if (Object.keys(errors).length > 0) {
+      setFormErrors(errors);
+      return;
+    }
+
     try {
       await axios.post("/applications", {
         job: job._id,
@@ -50,6 +82,7 @@ const DetailJob = () => {
       });
       alert("Application submitted successfully!");
       setFormData({ name: "", email: "", resume: "", coverNote: "" });
+      setFormErrors({});
     } catch (err) {
       console.error(err);
       alert("Something went wrong!");
@@ -112,7 +145,7 @@ const DetailJob = () => {
         <div className="lg:col-span-4">
           <div className="bg-white border border-gray-100 p-8 sticky top-8">
             <h2 className="text-[22px] font-bold text-[#1a202c] mb-6 clash">Apply Now</h2>
-            <form onSubmit={handleSubmit} className="flex flex-col gap-5 Epilogue">
+            <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-5 Epilogue">
               
               <div>
                 <label className="block text-[14px] font-semibold text-[#1a202c] mb-2">Full Name</label>
@@ -136,8 +169,9 @@ const DetailJob = () => {
                   required
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 bg-[#fcfdff] border border-gray-200 text-[15px] text-[#1a202c] focus:outline-none focus:border-[#4640DE] transition-colors rounded-none placeholder-gray-400"
+                  className={`w-full px-4 py-3 bg-[#fcfdff] border ${formErrors.email ? 'border-red-500' : 'border-gray-200'} text-[15px] text-[#1a202c] focus:outline-none focus:border-[#4640DE] transition-colors rounded-none placeholder-gray-400`}
                 />
+                {formErrors.email && <p className="text-red-500 text-[12px] mt-1">{formErrors.email}</p>}
               </div>
 
               <div>
@@ -149,8 +183,9 @@ const DetailJob = () => {
                   required
                   value={formData.resume}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 bg-[#fcfdff] border border-gray-200 text-[15px] text-[#1a202c] focus:outline-none focus:border-[#4640DE] transition-colors rounded-none placeholder-gray-400"
+                  className={`w-full px-4 py-3 bg-[#fcfdff] border ${formErrors.resume ? 'border-red-500' : 'border-gray-200'} text-[15px] text-[#1a202c] focus:outline-none focus:border-[#4640DE] transition-colors rounded-none placeholder-gray-400`}
                 />
+                {formErrors.resume && <p className="text-red-500 text-[12px] mt-1">{formErrors.resume}</p>}
               </div>
 
               <div>

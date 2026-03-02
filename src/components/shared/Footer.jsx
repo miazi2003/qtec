@@ -5,14 +5,14 @@ export default function Footer() {
   return (
     <footer className="w-full bg-[#202430] font-sans text-white border-t border-gray-800">
       {/* Main Container */}
-      {/* Note: Changed lg:px-31 to lg:px-32 as 31 is not a default Tailwind class */}
+
       <div className="max-w-[1440px] mx-auto lg:px-32 md:px-16 px-4 pt-16 md:pt-20 pb-8">
         
         {/* Top Grid Section */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 mb-16">
           
           {/* Brand & Description Column */}
-          {/* On tablet (md), this spans full width. On desktop (lg), it takes 4/12 columns. */}
+     
           <div className="md:col-span-2 lg:col-span-4 pr-0 lg:pr-8">
             {/* Logo */}
             <div className="flex items-center gap-2 mb-6">
@@ -28,7 +28,7 @@ export default function Footer() {
           </div>
 
           {/* About & Resources Links Container */}
-          {/* Placed together in a flex container so they sit side-by-side on mobile, spanning 4/12 on desktop */}
+    
           <div className="md:col-span-1 lg:col-span-4 flex justify-between pr-0 lg:pr-10">
             {/* About Links */}
             <div>
