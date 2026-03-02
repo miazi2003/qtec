@@ -13,6 +13,7 @@ export default function Navbar() {
         {/* Left Section - Logo & Desktop Links */}
         <div className="flex items-center gap-14">
           {/* Logo */}
+       <a href="/">
           <div className="flex items-center justify-center gap-2 cursor-pointer">
             <span className="w-8 h-8 flex items-center justify-center">
               <img src={logo} alt="QuickHire Logo" className="w-full h-full object-contain" />
@@ -20,7 +21,7 @@ export default function Navbar() {
             <span className="text-[18px] text-gray-800 red_hat font-bold tracking-tight">
               QuickHire
             </span>
-          </div>
+          </div></a>
           
           {/* Desktop Links (Hidden on Mobile via 'hidden md:flex') */}
           <div className="hidden md:flex items-center gap-8 Epilogue font-medium">

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-// Import Swiper styles
+
 import 'swiper/css';
 
 import r from "../../assets/r.png"
@@ -12,7 +12,6 @@ import canva from "../../assets/canva.png"
 import goDaddy from "../../assets/godaddy-logo-0 1.png"
 import x from "../../assets/x.png"
 
-// Centralized data array for the map system
 const jobData = [
   {
     id: 1,
@@ -116,7 +115,7 @@ const jobData = [
   },
 ];
 
-// Reusable card component to prevent duplicate code in mobile and desktop views
+
 const JobCard = ({ job }) => (
   <div className="border border-gray-200 bg-white p-6 hover:shadow-md transition-shadow duration-300 flex flex-col h-full">
     {/* Top Row: Logo & Badge */}
@@ -146,7 +145,7 @@ const JobCard = ({ job }) => (
       {job.description}
     </p>
 
-    {/* Tags (Bottom aligned using mt-auto) */}
+ 
     <div className="flex flex-wrap gap-2 mt-auto pt-6">
       {job.tags.map((tag, index) => (
         <span 
@@ -170,31 +169,33 @@ export default function FeaturedJob() {
           Featured <span className="text-[#0ea5e9]">jobs</span>
         </h2>
         
-        {/* Desktop Button (Hidden on Mobile) */}
-        <button className="hidden md:flex items-center gap-2 text-[15px] font-medium text-[#4640DE] hover:underline transition-all Epilogue">
+        {/* Desktop Button */}
+    <a href="/joblistings">
+          <button className="hidden md:flex items-center gap-2 text-[15px] font-medium text-[#4640DE] hover:underline transition-all Epilogue">
           Show all jobs
           <svg className="w-4 h-4 mt-[2px]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
           </svg>
         </button>
+    </a>
       </div>
 
-      {/* Desktop Grid Section (Hidden on Mobile) */}
+      {/* Desktop Grid Section */}
       <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-8">
         {jobData.map((job) => (
           <JobCard key={job.id} job={job} />
         ))}
       </div>
 
-      {/* Mobile Slider Section (Hidden on Desktop) */}
+      {/* Mobile Slider Section */}
       <div className="block md:hidden">
         <Swiper
-          slidesPerView={1.1} // Shows 1 full card and 10% of the next card
-          spaceBetween={16}   // Gap between cards
+          slidesPerView={1.1} 
+          spaceBetween={16}  
           className="w-full pb-4"
         >
           {jobData.map((job) => (
-            // The h-auto class on SwiperSlide ensures all cards stretch to the same height
+
             <SwiperSlide key={job.id} className="h-auto">
               <JobCard job={job} />
             </SwiperSlide>
@@ -202,13 +203,15 @@ export default function FeaturedJob() {
         </Swiper>
       </div>
 
-      {/* Mobile Button (Hidden on Desktop, displayed below slider) */}
-      <button className="flex md:hidden items-center justify-left gap-2 text-[15px] font-medium text-[#4640DE] transition-all mt-6 Epilogue w-full">
+      {/* Mobile Button  */}
+      <a href="/joblistings">
+        <button className="flex md:hidden items-center justify-left gap-2 text-[15px] font-medium text-[#4640DE] transition-all mt-6 Epilogue w-full">
         Show all jobs
         <svg className="w-4 h-4 mt-[2px]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
         </svg>
       </button>
+      </a>
 
     </section>
   );

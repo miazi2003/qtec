@@ -9,7 +9,7 @@ import box_step from "../../assets/box_step.png"
 import transform from "../../assets/Terraform Enterprise.png"
 import packer from "../../assets/packer.png"
 
-// Data array for the map system
+
 const latestJobsData = [
   {
     id: 1,
@@ -111,7 +111,7 @@ const latestJobsData = [
 
 export default function LatestJob() {
   return (
-    // Note: Changed lg:px-31 to lg:px-32 as 31 isn't a default Tailwind class
+
     <section className="w-full max-w-[1440px] mx-auto lg:px-32 md:px-16 px-4 py-10 md:py-16 clash latest_bg">
       
       {/* Header Section */}
@@ -120,12 +120,13 @@ export default function LatestJob() {
           <span className="font-bold">Latest </span> <span className="font-bold text-[#3b82f6]">jobs open</span>
         </h2>
         
+    <a href="/">
         <button className="flex items-center gap-2 text-[15px] Epilogue font-medium text-[#4f46e5] hover:underline transition-all mt-2 md:mt-0">
           Show all jobs
           <svg className="w-4 h-4 mt-[2px]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
           </svg>
-        </button>
+        </button></a>
       </div>
 
       {/* Jobs Grid Section */}
@@ -133,11 +134,11 @@ export default function LatestJob() {
         {latestJobsData.map((job) => (
           <div 
             key={job.id} 
-            // FIXED: Enforced row layout at all screen sizes
+
             className="flex md:flex-row flex-col items-start gap-4 md:gap-5 p-5 md:p-6 bg-white border border-transparent hover:border-gray-100 hover:shadow-md transition-all duration-300"
           >
             {/* Logo Left */}
-            {/* FIXED: Removed mb-6 and established fixed dimensions so it doesn't squish */}
+
             <div className="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center">
               <img src={job.logo} alt={`${job.company} logo`} className="w-full h-full object-contain" />
             </div>

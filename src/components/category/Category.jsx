@@ -76,13 +76,14 @@ export default function Category() {
         <h2 className="md:text-[48px] text-[26px] font-bold text-[#1a202c] leading-tight tracking-tight clash">
           Explore by <span className="text-[#0ea5e9]">category</span>
         </h2>
+     <a href="/joblistings">
         
         <button className="flex items-center gap-2 text-[15px] font-medium text-[#4f46e5] hover:underline transition-all mt-4 sm:mt-0 Epilogue">
           Show all jobs
           <svg className="w-4 h-4 mt-[2px]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
           </svg>
-        </button>
+        </button></a>
       </div>
 
       {/* Grid Section using Map */}
