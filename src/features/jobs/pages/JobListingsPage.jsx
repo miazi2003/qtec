@@ -1,10 +1,10 @@
 import { useState, useMemo, useEffect } from "react";
-import axios from "../api/axios";
-import JobCard from "../components/cards/JobCard";
-import SearchBar from "../components/Search/SearchBar";
-import JobFilters from "../components/Search/JobFilters";
+import JobCard from "@/components/cards/JobCard";
+import SearchBar from "@/components/Search/SearchBar";
+import JobFilters from "@/components/Search/JobFilters";
+import { getJobs } from "@/features/jobs/services/jobsService";
 
-const JobListings = () => {
+const JobListingsPage = () => {
   const [jobs, setJobs] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -16,8 +16,8 @@ const JobListings = () => {
   useEffect(() => {
     const fetchJobs = async () => {
       try {
-        const res = await axios.get("/jobs");
-        setJobs(res.data);
+        const data = await getJobs();
+        setJobs(data);
       } catch (err) {
         console.error(err);
         setError("Failed to load jobs.", err);
@@ -139,4 +139,4 @@ const JobListings = () => {
   );
 };
 
-export default JobListings;
+export default JobListingsPage;

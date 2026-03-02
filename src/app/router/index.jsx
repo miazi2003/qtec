@@ -1,10 +1,10 @@
 import React from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import MainLayout from '../layouts/MainLayout';
-import Home from '../pages/Home';
-import JobListings from '../pages/JobListings';
-import DetailJob from '../pages/DetailsJob';
-import AdminJobs from '../dashboard/AdminJobs';
+import MainLayout from '@/app/layouts/MainLayout';
+import HomePage from '@/features/home/pages/HomePage';
+import JobListingsPage from '@/features/jobs/pages/JobListingsPage';
+import JobDetailsPage from '@/features/jobs/pages/JobDetailsPage';
+import AdminJobsPage from '@/features/admin/pages/AdminJobsPage';
 
 
 const router = createBrowserRouter([
@@ -14,19 +14,19 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Home />
+        element: <HomePage />
       },
       {
         path: "/JobListings",
-        element: <JobListings></JobListings>
+        element: <JobListingsPage></JobListingsPage>
       },
       {
         path: "/jobs/:job_id",
-        element: <DetailJob />
+        element: <JobDetailsPage />
       },
       {
         path : "/AdminJobs",
-         element: <AdminJobs/>
+         element: <AdminJobsPage/>
       }
 
      

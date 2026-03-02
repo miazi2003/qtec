@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import axios from "../api/axios";
+import { createJob, deleteJob, getJobs } from "@/features/jobs/services/jobsService";
 
-const AdminJobs = () => {
+const AdminJobsPage = () => {
   const [jobs, setJobs] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [formData, setFormData] = useState({
@@ -14,8 +14,8 @@ const AdminJobs = () => {
 
   const fetchJobs = async () => {
     try {
-      const res = await axios.get("/jobs");
-      setJobs(res.data);
+      const data = await getJobs();
+      setJobs(data);
     } catch (error) {
       console.log(error);
     }
@@ -35,7 +35,7 @@ const AdminJobs = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("/jobs", formData);
+      await createJob(formData);
       setFormData({
         title: "",
         company: "",
@@ -52,7 +52,7 @@ const AdminJobs = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`/jobs/${id}`);
+      await deleteJob(id);
       fetchJobs();
     } catch (error) {
       console.log(error);
@@ -235,4 +235,4 @@ const AdminJobs = () => {
   );
 };
 
-export default AdminJobs;
+export default AdminJobsPage;

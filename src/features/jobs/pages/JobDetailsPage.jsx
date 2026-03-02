@@ -1,8 +1,8 @@
 import { useParams, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
-import axios from "../api/axios";
+import { getJobById, submitJobApplication } from "@/features/jobs/services/jobsService";
 
-const DetailJob = () => {
+const JobDetailsPage = () => {
   const { job_id } = useParams();
   const [job, setJob] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -20,8 +20,8 @@ const DetailJob = () => {
   useEffect(() => {
     const fetchJob = async () => {
       try {
-        const res = await axios.get(`/jobs/${job_id}`);
-        setJob(res.data);
+        const data = await getJobById(job_id);
+        setJob(data);
       } catch (err) {
         console.error(err);
         setError("Failed to load job.");
@@ -73,7 +73,7 @@ const DetailJob = () => {
     }
 
     try {
-      await axios.post("/applications", {
+      await submitJobApplication({
         job: job._id,
         name: formData.name,
         email: formData.email,
@@ -216,4 +216,4 @@ const DetailJob = () => {
   );
 };
 
-export default DetailJob;
+export default JobDetailsPage;
