@@ -2,23 +2,41 @@ import { Link } from "react-router-dom";
 
 const JobCard = ({ job }) => {
   return (
-    <div className="bg-white shadow-md hover:shadow-lg transition-transform transform hover:-translate-y-1 p-6 rounded-xl border border-gray-200 flex flex-col justify-between">
+    <div className="bg-white border border-gray-200 p-6 hover:shadow-md transition-shadow duration-300 flex flex-col h-full rounded-none">
       
+      {/* Top section: Title, Company, Location */}
       <div>
-        <h2 className="text-xl font-semibold mb-1">{job.title}</h2>
-        <p className="text-gray-600 font-medium">{job.company}</p>
-        <p className="text-sm text-gray-500 mb-2">
-          {job.location} • {job.category}
+        <h2 className="text-[18px] font-bold text-[#1a202c] mb-1 Epilogue tracking-tight">
+          {job.title}
+        </h2>
+        
+        <p className="text-[14px] text-[#64748b] font-medium mb-4 Epilogue">
+          <span className="text-[#1a202c]">{job.company}</span> 
+          <span className="mx-1.5">•</span> 
+          {job.location} 
+          
+          {/* Only render category if it exists to prevent trailing bullets */}
+          {job.category && (
+            <>
+              <span className="mx-1.5">•</span> {job.category}
+            </>
+          )}
         </p>
-        <p className="text-gray-700 mb-4 line-clamp-3">{job.description}</p>
+        
+        {/* Description */}
+        <p className="text-[14px] text-[#94a3b8] mt-2 mb-8 leading-relaxed line-clamp-3 Epilogue">
+          {job.description}
+        </p>
       </div>
 
+      {/* Button aligned to the bottom */}
       <Link
         to={`/jobs/${job.job_id}`}
-        className="mt-auto inline-block px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
+        className="mt-auto block w-full text-center px-4 py-[14px] bg-[#4640DE] text-white text-[15px] font-bold hover:bg-[#3934b3] transition-colors duration-300 Epilogue rounded-none"
       >
         View Details
       </Link>
+      
     </div>
   );
 };

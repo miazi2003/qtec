@@ -28,7 +28,7 @@ const latestJobsData = [
     title: 'Social Media Assistant',
     company: 'Netlify',
     location: 'Paris, France',
-    logo:social,
+    logo: social,
     tags: [
       { name: 'Full-Time', styles: 'text-emerald-500 border-emerald-200' },
       { name: 'Marketing', styles: 'text-orange-400 border-orange-200' },
@@ -40,7 +40,7 @@ const latestJobsData = [
     title: 'Brand Designer',
     company: 'Dropbox',
     location: 'San Fransisco, USA',
-    logo:box_step ,
+    logo: box_step ,
     tags: [
       { name: 'Full-Time', styles: 'text-emerald-500 border-emerald-200' },
       { name: 'Marketing', styles: 'text-orange-400 border-orange-200' },
@@ -52,7 +52,7 @@ const latestJobsData = [
     title: 'Brand Designer',
     company: 'Maze',
     location: 'San Fransisco, USA',
-    logo:Brand,
+    logo: Brand,
     tags: [
       { name: 'Full-Time', styles: 'text-emerald-500 border-emerald-200' },
       { name: 'Marketing', styles: 'text-orange-400 border-orange-200' },
@@ -64,7 +64,7 @@ const latestJobsData = [
     title: 'Interactive Developer',
     company: 'Terraform',
     location: 'Hamburg, Germany',
-    logo:transform,
+    logo: transform,
     tags: [
       { name: 'Full-Time', styles: 'text-emerald-500 border-emerald-200' },
       { name: 'Marketing', styles: 'text-orange-400 border-orange-200' },
@@ -111,15 +111,16 @@ const latestJobsData = [
 
 export default function LatestJob() {
   return (
-    <section className="w-full  mx-auto lg:px-31 md:px-16 px-4 py-16 clash latest_bg">
+    // Note: Changed lg:px-31 to lg:px-32 as 31 isn't a default Tailwind class
+    <section className="w-full max-w-[1440px] mx-auto lg:px-32 md:px-16 px-4 py-10 md:py-16 clash latest_bg">
       
       {/* Header Section */}
-      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-10">
-        <h2 className="md:text-[48px] text-[26px]  text-[#1a202c] leading-tight tracking-tight">
+      <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-8 md:mb-10 gap-4">
+        <h2 className="text-[32px] md:text-[48px] text-[#1a202c] leading-tight tracking-tight">
           <span className="font-bold">Latest </span> <span className="font-bold text-[#3b82f6]">jobs open</span>
         </h2>
         
-        <button className="flex items-center gap-2 text-[15px] Epilogue font-medium text-[#4f46e5] hover:underline transition-all mt-4 sm:mt-0">
+        <button className="flex items-center gap-2 text-[15px] Epilogue font-medium text-[#4f46e5] hover:underline transition-all mt-2 md:mt-0">
           Show all jobs
           <svg className="w-4 h-4 mt-[2px]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -128,23 +129,25 @@ export default function LatestJob() {
       </div>
 
       {/* Jobs Grid Section */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6">
         {latestJobsData.map((job) => (
           <div 
             key={job.id} 
-            className="md:flex flex-col items-start gap- p-6 bg-white  hover:shadow-md transition-shadow duration-300"
+            // FIXED: Enforced row layout at all screen sizes
+            className="flex md:flex-row flex-col items-start gap-4 md:gap-5 p-5 md:p-6 bg-white border border-transparent hover:border-gray-100 hover:shadow-md transition-all duration-300"
           >
             {/* Logo Left */}
-            <div className="flex-shrink-0 md:h-10 md:w-10 h-8 w-8 mb-6 md:mb-0">
-              <img src={job.logo} alt="" />
+            {/* FIXED: Removed mb-6 and established fixed dimensions so it doesn't squish */}
+            <div className="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center">
+              <img src={job.logo} alt={`${job.company} logo`} className="w-full h-full object-contain" />
             </div>
 
             {/* Content Right */}
-            <div className="flex flex-col flex-grow">
-              <h3 className="text-[18px] font-semibold text-[#1a202c] mb-[2px] Epilogue">
+            <div className="flex flex-col flex-grow min-w-0">
+              <h3 className="text-[17px] md:text-[18px] font-semibold text-[#1a202c] mb-[2px] Epilogue truncate">
                 {job.title}
               </h3>
-              <p className="text-[14px] text-[#64748b] font-medium mb-4">
+              <p className="text-[13px] md:text-[14px] text-[#64748b] font-medium mb-3 md:mb-4">
                 {job.company} <span className="mx-1">•</span> {job.location}
               </p>
 
@@ -153,7 +156,7 @@ export default function LatestJob() {
                 {job.tags.map((tag, index) => (
                   <span 
                     key={index} 
-                    className={`px-3 py-[2px] rounded-full border text-[11px] font-bold tracking-wide ${tag.styles}`}
+                    className={`px-3 py-[2px] rounded-full border text-[11px] font-bold tracking-wide ${tag.styles} whitespace-nowrap`}
                   >
                     {tag.name}
                   </span>

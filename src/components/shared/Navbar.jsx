@@ -6,7 +6,7 @@ export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <nav className="w-full bg-[#f3f4f6] border-b border-gray-200 relative z-50">
+    <nav className="w-full bg-transparent  relative z-50">
       {/* Note: I adjusted lg:px-31 to lg:px-32 because 31 is not a standard Tailwind utility class */}
       <div className="max-w-[1440px] mx-auto lg:px-32 md:px-16 px-4 h-16 flex items-center justify-between">
         
@@ -41,7 +41,7 @@ export default function Navbar() {
           <a href="#" className="text-[#4640DE] text-[15px] font-bold hover:underline Epilogue">
             Login
           </a>
-          <button className="bg-[#4640DE] hover:bg-blue-700 text-white text-[14px] Epilogue font-medium px-6 py-2.5 transition-colors rounded">
+          <button className="bg-[#4640DE] hover:bg-blue-700 text-white text-[14px] Epilogue font-medium px-6 py-2.5 transition-colors ">
             Sign Up
           </button>
         </div>
