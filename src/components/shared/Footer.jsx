@@ -1,60 +1,66 @@
 import React from 'react';
 import logo from "../../assets/Frame 3.png"
+
 export default function Footer() {
   return (
     <footer className="w-full bg-[#202430] font-sans text-white border-t border-gray-800">
       {/* Main Container */}
-      <div className=" mx-auto lg:px-31 md:px-16 px-4 pt-20 pb-8">
+      {/* Note: Changed lg:px-31 to lg:px-32 as 31 is not a default Tailwind class */}
+      <div className="max-w-[1440px] mx-auto lg:px-32 md:px-16 px-4 pt-16 md:pt-20 pb-8">
         
         {/* Top Grid Section */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 mb-16">
           
-          {/* Brand & Description Column (Wider) */}
-          <div className="lg:col-span-4 pr-0 lg:pr-8">
+          {/* Brand & Description Column */}
+          {/* On tablet (md), this spans full width. On desktop (lg), it takes 4/12 columns. */}
+          <div className="md:col-span-2 lg:col-span-4 pr-0 lg:pr-8">
             {/* Logo */}
             <div className="flex items-center gap-2 mb-6">
-              <div className="w-8 h-8 flex items-center justify-center  rounded-full">
-                {/* Custom QuickHire Icon Approximation */}
-                <img src={logo} alt="" />
+              <div className="w-8 h-8 flex items-center justify-center rounded-full">
+                <img src={logo} alt="QuickHire Logo" className="w-full h-full object-contain" />
               </div>
               <span className="text-[22px] font-bold tracking-tight">QuickHire</span>
             </div>
             
-            <p className="text-[#9ca3af] text-[15px] leading-relaxed">
+            <p className="text-[#9ca3af] text-[15px] leading-relaxed max-w-sm md:max-w-xl lg:max-w-full">
               Great platform for the job seeker that passionate about startups. Find your dream job easier.
             </p>
           </div>
 
-          {/* About Links */}
-          <div className="lg:col-span-2">
-            <h4 className="text-[17px] font-bold mb-6">About</h4>
-            <ul className="space-y-4">
-              {['Companies', 'Pricing', 'Terms', 'Advice', 'Privacy Policy'].map((item) => (
-                <li key={item}>
-                  <a href={`#${item.toLowerCase()}`} className="text-[#9ca3af] hover:text-white transition-colors text-[15px]">
-                    {item}
-                  </a>
-                </li>
-              ))}
-            </ul>
+          {/* About & Resources Links Container */}
+          {/* Placed together in a flex container so they sit side-by-side on mobile, spanning 4/12 on desktop */}
+          <div className="md:col-span-1 lg:col-span-4 flex justify-between pr-0 lg:pr-10">
+            {/* About Links */}
+            <div>
+              <h4 className="text-[17px] font-bold mb-5 md:mb-6">About</h4>
+              <ul className="space-y-3 md:space-y-4">
+                {['Companies', 'Pricing', 'Terms', 'Advice', 'Privacy Policy'].map((item) => (
+                  <li key={item}>
+                    <a href={`#${item.toLowerCase().replace(' ', '-')}`} className="text-[#9ca3af] hover:text-white transition-colors text-[15px]">
+                      {item}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Resources Links */}
+            <div>
+              <h4 className="text-[17px] font-bold mb-5 md:mb-6">Resources</h4>
+              <ul className="space-y-3 md:space-y-4">
+                {['Help Docs', 'Guide', 'Updates', 'Contact Us'].map((item) => (
+                  <li key={item}>
+                    <a href={`#${item.toLowerCase().replace(' ', '-')}`} className="text-[#9ca3af] hover:text-white transition-colors text-[15px]">
+                      {item}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
 
-          {/* Resources Links */}
-          <div className="lg:col-span-2">
-            <h4 className="text-[17px] font-bold mb-6">Resources</h4>
-            <ul className="space-y-4">
-              {['Help Docs', 'Guide', 'Updates', 'Contact Us'].map((item) => (
-                <li key={item}>
-                  <a href={`#${item.toLowerCase()}`} className="text-[#9ca3af] hover:text-white transition-colors text-[15px]">
-                    {item}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Newsletter Section (Wider) */}
-          <div className="lg:col-span-4">
+          {/* Newsletter Section */}
+          <div className="md:col-span-1 lg:col-span-4">
             <h4 className="text-[17px] font-bold mb-4">Get job notifications</h4>
             <p className="text-[#9ca3af] text-[15px] mb-6 leading-relaxed">
               The latest job news, articles, sent to your inbox weekly.
@@ -65,12 +71,12 @@ export default function Footer() {
               <input 
                 type="email" 
                 placeholder="Email Address" 
-                className="w-full px-4 py-[14px] text-sm text-gray-900 bg-white focus:outline-none placeholder-gray-400"
+                className="w-full px-4 py-[14px] text-sm text-gray-900 bg-white focus:outline-none placeholder-gray-400 min-w-0"
                 required
               />
               <button 
                 type="submit" 
-                className="px-6 py-[14px] bg-[#4f46e5] text-white text-[15px] font-bold hover:bg-indigo-600 transition-colors whitespace-nowrap"
+                className="px-5 md:px-6 py-[14px] bg-[#4f46e5] text-white text-[15px] font-bold hover:bg-indigo-600 transition-colors whitespace-nowrap flex-shrink-0"
               >
                 Subscribe
               </button>
@@ -83,13 +89,13 @@ export default function Footer() {
         <div className="w-full border-t border-[#2e3240] mb-8"></div>
 
         {/* Bottom Section: Copyright & Socials */}
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="flex flex-col-reverse md:flex-row items-center justify-between gap-6">
           
-          <p className="text-[#7d8597] text-[14px]">
+          <p className="text-[#7d8597] text-[14px] text-center md:text-left">
             2021 © QuickHire. All rights reserved.
           </p>
 
-          {/* Social Icons mapped to match the circular container design */}
+          {/* Social Icons */}
           <div className="flex items-center gap-3">
             {/* Facebook */}
             <a href="#facebook" className="w-[34px] h-[34px] flex items-center justify-center bg-[#2a2e3b] rounded-full hover:bg-[#4f46e5] transition-colors group">
@@ -107,7 +113,7 @@ export default function Footer() {
               </svg>
             </a>
 
-            {/* Dribbble (Globe approximation in design) */}
+            {/* Dribbble */}
             <a href="#dribbble" className="w-[34px] h-[34px] flex items-center justify-center bg-[#2a2e3b] rounded-full hover:bg-[#4f46e5] transition-colors group">
                <svg className="w-[14px] h-[14px] text-[#9ca3af] group-hover:text-white transition-colors" fill="currentColor" viewBox="0 0 24 24">
                 <path fillRule="evenodd" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm8.46 10c-.06-.8-.21-1.57-.45-2.3l-3.3 1.3c.31.96.48 1.98.48 3.03 0 .44-.04.88-.09 1.31l3.29-1.29c.04-.34.07-.69.07-1.05zM12 20.5c-1.6 0-3.1-.45-4.38-1.21l3.32-1.31c1.23.47 2.58.72 4 .72.63 0 1.25-.06 1.84-.17l-3.3 1.3c-.45.45-1 .85-1.48 1.17v.5z" clipRule="evenodd"/>

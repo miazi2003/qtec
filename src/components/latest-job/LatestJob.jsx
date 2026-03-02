@@ -115,7 +115,7 @@ export default function LatestJob() {
       
       {/* Header Section */}
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-10">
-        <h2 className="text-[40px] text-[#1a202c] leading-tight tracking-tight">
+        <h2 className="md:text-[48px] text-[26px]  text-[#1a202c] leading-tight tracking-tight">
           <span className="font-bold">Latest </span> <span className="font-bold text-[#3b82f6]">jobs open</span>
         </h2>
         
@@ -132,10 +132,10 @@ export default function LatestJob() {
         {latestJobsData.map((job) => (
           <div 
             key={job.id} 
-            className="flex items-start gap-5 p-6 bg-white  hover:shadow-md transition-shadow duration-300"
+            className="md:flex flex-col items-start gap- p-6 bg-white  hover:shadow-md transition-shadow duration-300"
           >
             {/* Logo Left */}
-            <div className="flex-shrink-0 h-10 w-10">
+            <div className="flex-shrink-0 md:h-10 md:w-10 h-8 w-8 mb-6 md:mb-0">
               <img src={job.logo} alt="" />
             </div>
 
