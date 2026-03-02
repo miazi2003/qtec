@@ -7,7 +7,7 @@ import hr from "../../assets/hr.png"
 import nomad from "../../assets/Nomad.png"
 import box_step from "../../assets/box_step.png"
 import transform from "../../assets/Terraform Enterprise.png"
-import packer from "../../assets/packer.png"
+import packer from "../../assets/Packer.png"
 
 
 const latestJobsData = [
