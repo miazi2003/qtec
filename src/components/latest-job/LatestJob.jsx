@@ -112,9 +112,10 @@ const latestJobsData = [
 export default function LatestJob() {
   return (
 
-    <section className="w-full max-w-[1440px] mx-auto lg:px-32 md:px-16 px-4 py-10 md:py-16 clash latest_bg">
+    <section className="w-full  mx-auto  py-10 md:py-16 clash latest_bg">
       
-      {/* Header Section */}
+  <div className='hero-left lg:px-32 md:px-16 px-4'>
+        {/* Header Section */}
       <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-8 md:mb-10 gap-4">
         <h2 className="text-[32px] md:text-[48px] text-[#1a202c] leading-tight tracking-tight">
           <span className="font-bold">Latest </span> <span className="font-bold text-[#3b82f6]">jobs open</span>
@@ -167,6 +168,7 @@ export default function LatestJob() {
           </div>
         ))}
       </div>
+  </div>
 
     </section>
   );

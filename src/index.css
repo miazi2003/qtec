@@ -43,7 +43,7 @@
   background: url("../src/assets/latest.png");
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center;
+  background-position: top;
 }
 
 .hero-left{

@@ -8,7 +8,7 @@ export default function Navbar() {
   return (
     <nav className="w-full bg-transparent  relative z-50">
 
-      <div className="max-w-[1440px] mx-auto lg:px-32 md:px-16 px-4 h-16 flex items-center justify-between">
+      <div className=" mx-auto lg:px-31 md:px-16 px-4 h-16 flex items-center justify-between">
         
    
         <div className="flex items-center gap-14">
